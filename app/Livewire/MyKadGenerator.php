@@ -29,15 +29,15 @@ class MyKadGenerator extends Component
                 'ic_back' => 22,
             ],
             'bg_colors' => [
-                'ic_number' => '#4e6e83',
-                'name' => '#4e6e83',
-                'address' => '#4e6e83',
+                'ic_number' => '#6c878f',
+                'name' => '#6c878f',
+                'address' => '#6c878f',
                 'ic_back' => '#4e6e83',
             ],
             'block_sizes' => [
                 'ic_number' => ['width' => 247, 'height' => 26],
                 'name' => ['width' => 245, 'height' => 28],
-                'address' => ['width' => 245, 'height' => 67],
+                'address' => ['width' => 245, 'height' => 99],
                 'ic_back' => ['width' => 247, 'height' => 28],
             ],
             'photo' => ['x' => 413, 'y' => 97, 'width' => 172, 'height' => 228],
@@ -52,9 +52,9 @@ class MyKadGenerator extends Component
             ],
             'address' => [
                 'x' => 46,
-                'y' => 313,
+                'y' => 280,
                 'text_x' => 56,
-                'text_y' => 328,
+                'text_y' => 298,
             ],
             'ic_back' => [
                 'x' => 193,

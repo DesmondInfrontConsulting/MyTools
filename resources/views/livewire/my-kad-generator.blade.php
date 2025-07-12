@@ -5,6 +5,7 @@
             <h3 class="mb-4 text-primary text-center">🆔 MyKad Generator</h3>
 
             <form wire:submit.prevent="generate" enctype="multipart/form-data" class="row g-3">
+                {{-- <form wire:submit.prevent="generate" enctype="multipart/form-data" class="row g-3"> --}}
                 <div class="col-12">
                     <label class="form-label">Photo:</label>
                     <input type="file" wire:model="photo" class="form-control">
@@ -51,15 +52,16 @@
 
                 <div class="col-12">
                     <label class="form-label">Address:</label>
-                    <small class="text-muted">Maximum 4 lines</small>
-                    <textarea wire:model="address" class="form-control" rows="3"></textarea>
+                    <small class="text-muted">Maximum 5 lines</small>
+                    <textarea wire:model="address" class="form-control" rows="5" wire:model="address" name="street-address"
+                        id="address" rows="5" class="form-control" autocomplete="street-address"></textarea>
                     @error("address")
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="col-12 d-grid">
-                    <button type="submit" class="btn btn-primary mt-2">Generate</button>
+                    <button type="submit" class="btn btn-primary mt-2" wire:click="generate">Generate</button>
                     @if ($downloadUrl)
                         <a href="{{ $downloadUrl }}" download="{{ $id_number }}.png" class="btn btn-success mt-3"
                             download>⬇️
