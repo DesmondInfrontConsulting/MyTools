@@ -27,7 +27,7 @@
 
                 <div class="col-12">
                     <label class="form-label">Name:</label>
-                    <input type="text" wire:model="name" class="form-control">
+                    <input type="text" wire:model="name" name="name" class="form-control">
                     @error("name")
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -35,12 +35,13 @@
 
                 <div class="col-12" x-data>
                     <label class="form-label">IC Number:</label>
-                    <input type="text" x-ref="input"
+                    <input type="text" x-ref="input" name="ic_number"
                         x-on:input="
             let v = $refs.input.value.replace(/\D/g, '');
             if (v.length > 6) v = v.slice(0, 6) + '-' + v.slice(6);
             if (v.length > 9) v = v.slice(0, 9) + '-' + v.slice(9, 13);
             $refs.input.value = v;
+            rawIC = v.replace(/-/g, '');
             $dispatch('input', v);
         "
                         wire:model.lazy="id_number" class="form-control" maxlength="14">
@@ -48,6 +49,9 @@
                     @error("id_number")
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
+                    <div class="mt-2">
+                        <strong>Without dash:</strong> <span x-text="rawIC"></span>
+                    </div>
                 </div>
 
                 <div class="col-12">
