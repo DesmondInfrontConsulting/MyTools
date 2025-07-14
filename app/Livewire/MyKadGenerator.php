@@ -105,7 +105,7 @@ class MyKadGenerator extends Component
             $fontPath = public_path('fonts/arial.ttf');
             $manager = new ImageManager(new Driver());
 
-            $templatePath = storage_path('app/public/' . $this->template);
+            $templatePath = public_path($this->template);
             $template = $manager->read($templatePath);
 
             $this->addUserPhoto($manager, $template);
@@ -115,13 +115,20 @@ class MyKadGenerator extends Component
             $this->addAddressBlock($manager, $template, $fontPath);
             $this->addICBackField($manager, $template, $fontPath);
 
-            $this->previewImage($template);
+            // Ensure folder exists
+            $outputPath = storage_path('app/public/generated');
+            if (!file_exists($outputPath)) {
+                mkdir($outputPath, 0755, true);
+            }
+
+            $this->previewImage($template); // Continue with your logic
         } catch (\Exception $e) {
             $this->dispatch('hide-modal');
         } finally {
             $this->dispatch('hide-modal');
         }
     }
+
 
     protected function validateInputs()
     {
