@@ -81,8 +81,8 @@
                     <img src="{{ $downloadUrl }}" class=" shadow border" style="max-height: 95vh;">
                 </div>
             @else
-                <img wire:key="preview-{{ $template }}" src="{{ asset("storage/" . $template) }}"
-                    class=" shadow border" style="max-height: 95vh;">
+                <img wire:key="preview-{{ $template }}" src="{{ asset($template) }}" class=" shadow border"
+                    style="max-height: 95vh;">
             @endif
         </div>
     </div>
