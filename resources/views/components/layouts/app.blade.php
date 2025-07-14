@@ -14,12 +14,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
+    <script src="https://get.celcomdigi.com/global-assets/js/lottie.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     @livewireStyles
 </head>
 
 <body>
+    <livewire:loading-modal />
     <div class="d-flex">
         <x-sidebar />
         <div class="flex-grow-1 main-wrapper">
@@ -30,5 +32,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     @livewireScripts
 </body>
+@stack("scripts")
 
 </html>

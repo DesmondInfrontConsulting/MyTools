@@ -99,22 +99,28 @@ class MyKadGenerator extends Component
 
     public function generate()
     {
-        $this->validateInputs();
+        try {
+            $this->validateInputs();
 
-        $fontPath = public_path('fonts/arial.ttf');
-        $manager = new ImageManager(new Driver());
+            $fontPath = public_path('fonts/arial.ttf');
+            $manager = new ImageManager(new Driver());
 
-        $templatePath = storage_path('app/public/' . $this->template);
-        $template = $manager->read($templatePath);
+            $templatePath = storage_path('app/public/' . $this->template);
+            $template = $manager->read($templatePath);
 
-        $this->addUserPhoto($manager, $template);
-        $this->addFadedPhoto($manager, $template);
-        $this->addICNumber($manager, $template, $fontPath);
-        $this->addNameBlock($manager, $template, $fontPath);
-        $this->addAddressBlock($manager, $template, $fontPath);
-        $this->addICBackField($manager, $template, $fontPath);
+            $this->addUserPhoto($manager, $template);
+            $this->addFadedPhoto($manager, $template);
+            $this->addICNumber($manager, $template, $fontPath);
+            $this->addNameBlock($manager, $template, $fontPath);
+            $this->addAddressBlock($manager, $template, $fontPath);
+            $this->addICBackField($manager, $template, $fontPath);
 
-        $this->previewImage($template);
+            $this->previewImage($template);
+        } catch (\Exception $e) {
+            $this->dispatch('hide-modal');
+        } finally {
+            $this->dispatch('hide-modal');
+        }
     }
 
     protected function validateInputs()

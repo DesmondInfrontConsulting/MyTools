@@ -5,7 +5,6 @@
             <h3 class="mb-4 text-primary text-center">🆔 MyKad Generator</h3>
 
             <form wire:submit.prevent="generate" enctype="multipart/form-data" class="row g-3">
-                {{-- <form wire:submit.prevent="generate" enctype="multipart/form-data" class="row g-3"> --}}
                 <div class="col-12">
                     <label class="form-label">Photo:</label>
                     <input type="file" wire:model="photo" class="form-control">
@@ -33,7 +32,7 @@
                     @enderror
                 </div>
 
-                <div class="col-12" x-data>
+                <div class="col-12" x-data="{ rawIC: '' }">
                     <label class="form-label">IC Number:</label>
                     <input type="text" x-ref="input" name="ic_number"
                         x-on:input="
@@ -53,7 +52,6 @@
                         <strong>Without dash:</strong> <span x-text="rawIC"></span>
                     </div>
                 </div>
-
                 <div class="col-12">
                     <label class="form-label">Address:</label>
                     <small class="text-muted">Maximum 5 lines</small>
@@ -65,7 +63,8 @@
                 </div>
 
                 <div class="col-12 d-grid">
-                    <button type="submit" class="btn btn-primary mt-2" wire:click="generate">Generate</button>
+                    <button type="submit" class="btn btn-primary mt-2" wire:click="generate" data-bs-toggle="modal"
+                        data-bs-target="#loadingBackdrop">Generate</button>
                     @if ($downloadUrl)
                         <a href="{{ $downloadUrl }}" download="{{ $id_number }}.png" class="btn btn-success mt-3"
                             download>⬇️
