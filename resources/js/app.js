@@ -1,4 +1,4 @@
-import "bootstrap";
+import $ from "jquery";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import flatpickr from "flatpickr";
 
