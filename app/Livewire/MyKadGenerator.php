@@ -29,9 +29,9 @@ class MyKadGenerator extends Component
                 'ic_back' => 22,
             ],
             'bg_colors' => [
-                'ic_number' => '#6c878f',
-                'name' => '#6c878f',
-                'address' => '#6c878f',
+                'ic_number' => '#778e96',
+                'name' => '#778e96',
+                'address' => '#778e96',
                 'ic_back' => '#4e6e83',
             ],
             'block_sizes' => [

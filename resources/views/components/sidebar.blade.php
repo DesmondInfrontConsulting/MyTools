@@ -16,5 +16,11 @@
                 <i class="bi bi-person-badge"></i> Generate Passport
             </a>
         </li>
+        <li class="nav-item mb-2">
+            <a href="{{ route("mrz") }}"
+                class="nav-link d-flex align-items-center gap-2 fw-medium hover-link {{ request()->routeIs("mrz") ? "active text-primary" : "text-dark" }}">
+                <i class="bi bi-person-badge"></i> MRZ Generator
+            </a>
+        </li>
     </ul>
 </div>
